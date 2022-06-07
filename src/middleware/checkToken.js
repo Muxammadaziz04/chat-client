@@ -12,7 +12,7 @@ function checkToken(req, res, next){
 
         token = jwt.verify(token, secretKey)
 
-        if(token.ip != req.ip || token.devise != req.headers['user-agent']) throw new InvalidRequestError(403, 'wrong token')
+        // if(token.ip != req.ip || token.devise != req.headers['user-agent']) throw new InvalidRequestError(403, 'wrong token')
 
         next()
 
