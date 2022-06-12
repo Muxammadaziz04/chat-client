@@ -18,9 +18,9 @@ const Register = (req, res) => {
     if(file){
         let fileName = Date.now() + file.img.name.replace(/\s/g, "")
         file.img.mv(path.join(__dirname, '../', 'uploads', 'avatars', fileName))
-        body.avatar = `http://localhost:3000/ava/${fileName}`
+        body.avatar = `http://new-chat-najot-talim.herokuapp.com/ava/${fileName}`
     } else {
-        body.avatar = "http://localhost:3000/ava/simple.jpg"
+        body.avatar = "http://new-chat-najot-talim.herokuapp.com/ava/simple.jpg"
     }
     
     body.userId = users.length ? +users.at(-1).userId + 1 : 1
@@ -95,11 +95,11 @@ const PostMessage = (req, res) => {
     let messages = readFile("messages")
 
     if(file){
-        let fileName = Date.now() + file.file.name.replace(/\s/g, "")
+        let fileName = Date.now() + file.file.name.replace(/\s/g, "") 
         file.file.mv(path.join(__dirname, "../", 'uploads', 'files', fileName))
         body.file = {
-            view : `http://localhost:3000/view/${fileName}`,
-            download : `http://localhost:3000/download/${fileName}`
+            view : `http://new-chat-najot-talim.herokuapp.com/view/${fileName}`,
+            download : `http://new-chat-najot-talim.herokuapp.com/download/${fileName}`
         }
         body.type = 'file'
         body.type.name = file.file.name
