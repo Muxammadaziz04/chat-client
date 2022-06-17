@@ -97,8 +97,8 @@ const PostMessage = (req, res) => {
         let fileName = Date.now() + file.file.name.replace(/\s/g, "") 
         file.file.mv(path.join(__dirname, "../", 'uploads', 'files', fileName))
         body.file = {
-            view : `http://new-chat-najot-talim.herokuapp.com/view/${fileName}`,
-            download : `http://new-chat-najot-talim.herokuapp.com/download/${fileName}`
+            view : `https://new-chat-najot-talim.herokuapp.com/view/${fileName}`,
+            download : `https://new-chat-najot-talim.herokuapp.com/download/${fileName}`
         }
         body.type = 'file'
         body.type.name = file.file.name
