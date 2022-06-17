@@ -2,7 +2,7 @@
     {
         "userId": 1,
         "type": "text",
-        "message": "nma gap",
+        "message": "Hammaga salom",
         "date": "05.06.2022",
         "time": "17:37",
         "messageId": 1
@@ -10,7 +10,7 @@
     {
         "userId": 1,
         "type": "text",
-        "message": "tinch",
+        "message": "birinchi test",
         "date": "05.06.2022",
         "time": "17:41",
         "messageId": 2
@@ -29,7 +29,7 @@
     },
     {
         "userId": "2",
-        "message": "ferferg",
+        "message": "sizgaham salom",
         "type": "text",
         "date": "06.06.2022",
         "time": "18:18",
@@ -37,7 +37,7 @@
     },
     {
         "userId": "2",
-        "message": "erferge",
+        "message": "yaxshi ishlavoti",
         "type": "text",
         "date": "06.06.2022",
         "time": "18:24",
@@ -45,7 +45,7 @@
     },
     {
         "userId": "2",
-        "message": "salom",
+        "message": "1234",
         "type": "text",
         "date": "06.06.2022",
         "time": "18:28",
@@ -53,7 +53,7 @@
     },
     {
         "userId": "1",
-        "message": "salom",
+        "message": "alik",
         "type": "text",
         "date": "06.06.2022",
         "time": "18:30",
@@ -61,71 +61,10 @@
     },
     {
         "userId": "2",
-        "message": "rbrtr",
+        "message": "new message",
         "type": "text",
         "date": "06.06.2022",
         "time": "18:42",
         "messageId": 8
-    },
-    {
-        "userId": "2",
-        "message": "",
-        "file": {
-            "view": "https://new-chat-najot-talim.herokuapp.com/view/1654523219525pexels-photo-112460.jpeg",
-            "download": "https://new-chat-najot-talim.herokuapp.com/download/1654523219525pexels-photo-112460.jpeg",
-            "name": "pexels-photo-112460.jpeg"
-        },
-        "type": "file",
-        "date": "06.06.2022",
-        "time": "18:46",
-        "messageId": 9
-    },
-    {
-        "userId": "6",
-        "message": "qale",
-        "type": "text",
-        "date": "06.06.2022",
-        "time": "18:49",
-        "messageId": 10
-    },
-    {
-        "userId": "7",
-        "message": "salom narod",
-        "type": "text",
-        "date": "06.06.2022",
-        "time": "19:03",
-        "messageId": 11
-    },
-    {
-        "userId": "6",
-        "message": "nma gap khaliluloh",
-        "type": "text",
-        "date": "06.06.2022",
-        "time": "19:03",
-        "messageId": 12
-    },
-    {
-        "userId": "6",
-        "message": "alik",
-        "type": "text",
-        "date": "16.06.2022",
-        "time": "20:39",
-        "messageId": 13
-    },
-    {
-        "userId": "6",
-        "message": "salom",
-        "type": "text",
-        "date": "16.06.2022",
-        "time": "20:40",
-        "messageId": 14
-    },
-    {
-        "userId": "6",
-        "message": "salom",
-        "type": "text",
-        "date": "16.06.2022",
-        "time": "20:41",
-        "messageId": 15
     }
 ]
