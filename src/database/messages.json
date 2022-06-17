@@ -127,17 +127,5 @@
         "date": "16.06.2022",
         "time": "20:41",
         "messageId": 15
-    },
-    {
-        "userId": "6",
-        "message": "",
-        "file": {
-            "view": "http://new-chat-najot-talim.herokuapp.com/view/1655464364549hamburger.jpg",
-            "download": "http://new-chat-najot-talim.herokuapp.com/download/1655464364549hamburger.jpg"
-        },
-        "type": "file",
-        "date": "17.06.2022",
-        "time": "16:12",
-        "messageId": 16
     }
 ]
