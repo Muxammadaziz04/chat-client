@@ -101,7 +101,7 @@ const PostMessage = (req, res) => {
             download : `https://new-chat-najot-talim.herokuapp.com/download/${fileName}`
         }
         body.type = 'file'
-        body.type.name = file.file.name
+        body.file.name = file.file.name
     } else {
         delete body.file
         body.type = "text"
