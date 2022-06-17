@@ -4,7 +4,6 @@ const path = require('path')
 const fs = require('fs')
 const { readFile, writeFile } = require('../utils/utils.js')
 const { AuthorizationError } = require('../utils/errors.js')
-const { fstat } = require('fs')
 
 
 const secretKey = 'secret'
@@ -34,7 +33,7 @@ const Register = (req, res) => {
     res.status(201).send({
         status : 201,
         message: 'successful registered',
-        token : jwt.sign({
+        token : jwt.sign({  
             userId : body.userId,
             devise : req.headers['user-agent'],
             ip : req.ip

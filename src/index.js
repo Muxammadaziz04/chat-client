@@ -1,19 +1,19 @@
 const express = require('express')
+const http = require('http')
+const socketIo = require('socket.io')
+const cors = require('cors')
+const {readFile} = require('./utils/utils')
 const userRouter = require('./routers/users.js')
 const messageRouter = require('./routers/messages.js')
 const fileRouter = require('./routers/files')
 const fileUpload = require('express-fileupload')
 
 let app = express()
+let server = http.createServer(app)
+
 
 app.use(express.json())
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', '*');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
-});
+app.use(cors());
 app.use(fileUpload())
 
 app.use(userRouter)
@@ -21,18 +21,14 @@ app.use(messageRouter)
 app.use(fileRouter)
 
 
-
-
-
-
 app.use((err, req, res, next) => {
     if(err.status >= 400 && err.status < 500){
-       return res.status(err.status).send({
+        return res.status(err.status).send({
             status : err.status,
             message: err.message
         })
     }  
-
+    
     res.status(500).send({
         status: 500,
         message: err.message
@@ -41,6 +37,36 @@ app.use((err, req, res, next) => {
 
 
 
+let io = socketIo(server)
+
+
+
+io.on('connection', client => {
+    
+    client.on('new', (data) => {
+        
+        let messages = readFile('messages')
+
+        let date = new Date()
+        if(data.file){
+            data.file = messages.at(-1).file
+            data.type = 'file'
+        } else {
+            data.type = "text"
+        }
+        
+        data.date = date.toLocaleDateString()
+        data.time = `${date.getHours()}:${date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}`
+        data.messageId = +messages.at(-1).messageId + 1 || 1
+        
+        client.broadcast.emit('send message', data)
+    })
+
+})
+
+
+
+
 const PORT = process.env.PORT || 3000
 
-app.listen(PORT, () => console.log(`Server is runing on ${PORT} port`))
+server.listen(PORT, () => console.log(`Server is runing on ${PORT} port`))
