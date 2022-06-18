@@ -6,7 +6,7 @@ const secretKey = 'secret'
 
 
 function checkToken(req, res, next){
-    if(req.url == '/login' || req.url == '/register' || req.url == 'ava') next()
+    if(req.url == '/login' || req.url == '/register' || req.url == '/ava') next()
 
     try {
         let token = req.headers.token
