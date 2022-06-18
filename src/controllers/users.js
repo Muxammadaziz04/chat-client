@@ -78,7 +78,7 @@ const Login = (req, res, next) => {
 
 const GetUsers = (req, res) => {
     let users = readFile('users')
-    res.status(200).send(users.filter(user => delete user.password))
+    res.status(200).send(users.map(user => delete user.password))
 }
 
 
