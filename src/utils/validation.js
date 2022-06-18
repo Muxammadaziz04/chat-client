@@ -11,9 +11,6 @@ const loginSchema = Joi.object({
     password : Joi.string().min(8).required()
 })
 
-const messageSchema = Joi.object({
-    userId : Joi.required()
-})
 
 module.exports = {
     registerShchema,

@@ -25,7 +25,7 @@ const PostMessage = (req, res) => {
 
     body.date = date.toLocaleDateString()
     body.time = `${date.getHours()}:${date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}`
-    body.messageId = messages.length ? +messages.at(-1).messageId + 1 : 1
+    body.messageId = +messages.at(-1).messageId + 1 || 1
 
     messages.push(body)
     writeFile('messages', messages)
