@@ -1,26 +1,41 @@
+const path = require('path')
 const express = require('express')
 const http = require('http')
 const socketIo = require('socket.io')
 const cors = require('cors')
-const {readFile} = require('./utils/utils')
+const fileUpload = require('express-fileupload')
+const validate = require('./middleware/validation')
+const checkToken = require('./middleware/checkToken')
 const userRouter = require('./routers/users.js')
 const messageRouter = require('./routers/messages.js')
 const fileRouter = require('./routers/files')
-const fileUpload = require('express-fileupload')
+const { readFile } = require('./utils/utils')
+
+
 
 let app = express()
 let server = http.createServer(app)
 
 
+
+// MIDDLEWARES
 app.use(express.json())
 app.use(cors());
 app.use(fileUpload())
+app.use(validate)
+app.use(checkToken)
+app.use(express.static(path.join(__dirname, 'uploads')))
 
+
+
+//ROUTES
 app.use(userRouter)
 app.use(messageRouter)
 app.use(fileRouter)
 
 
+
+//HANDLE ERROR
 app.use((err, req, res, next) => {
     if(err.status >= 400 && err.status < 500){
         return res.status(err.status).send({
@@ -28,7 +43,6 @@ app.use((err, req, res, next) => {
             message: err.message
         })
     }  
-    
     res.status(500).send({
         status: 500,
         message: err.message
@@ -42,12 +56,11 @@ let io = socketIo(server)
 
 
 io.on('connection', client => {
-    
     client.on('new', (data) => {
         
         let messages = readFile('messages')
-
         let date = new Date()
+
         if(data.file){
             data.file = messages.at(-1).file
             data.type = 'file'
@@ -63,7 +76,6 @@ io.on('connection', client => {
     })
 
 })
-
 
 
 

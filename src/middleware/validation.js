@@ -15,10 +15,10 @@ function validation(req, res, next) {
             let { error } = registerShchema.validate(req.body)
             if(error) throw new AuthorizationError(401, error.message)
         }
-        // if(req.url == "/message"){
-        //     let { error } = messageSchema.validate(req.body)
-        //     if(error) throw new InvalidRequestError(401, error.message)
-        // }
+        if(req.url == "/message"){
+            let { error } = messageSchema.validate(req.body)
+            if(error) throw new InvalidRequestError(401, error.message)
+        }
         
         next()
 

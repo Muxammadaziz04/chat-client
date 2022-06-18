@@ -1,13 +1,11 @@
 const express = require('express')
-const validation = require('../middleware/validation.js')
-const { Register, Login, GetUsers } = require('../controllers/controller.js')
-const checkToken = require('../middleware/checkToken.js')
+const { Register, Login, GetUsers } = require('../controllers/users.js')
 
 let router = express.Router()
 
-router.post('/register', validation, Register)
-router.post('/login', validation, Login)
-router.get('/users', checkToken, GetUsers)
+router.post('/register', Register)
+router.post('/login', Login)
+router.get('/users', GetUsers)
 
 
 module.exports = router
