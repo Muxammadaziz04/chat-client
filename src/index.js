@@ -5,7 +5,6 @@ const socketIo = require('socket.io')
 const cors = require('cors')
 const fileUpload = require('express-fileupload')
 const validate = require('./middleware/validation')
-const checkToken = require('./middleware/checkToken')
 const userRouter = require('./routers/users.js')
 const messageRouter = require('./routers/messages.js')
 const fileRouter = require('./routers/files')
@@ -24,7 +23,6 @@ app.use(cors());
 app.use(fileUpload())
 app.use(validate)
 app.use(express.static(path.join(__dirname, 'uploads')))
-app.use(checkToken)
 
 
 

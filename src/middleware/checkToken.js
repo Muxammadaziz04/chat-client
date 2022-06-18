@@ -6,8 +6,6 @@ const secretKey = 'secret'
 
 
 function checkToken(req, res, next){
-    if(req.url == '/login' || req.url == '/register' || req.url == '/ava/:fileName') next()
-
     try {
         let token = req.headers.token
         if(!token) throw new InvalidRequestError(400, 'token yoq')
