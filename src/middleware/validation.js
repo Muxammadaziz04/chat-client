@@ -1,5 +1,5 @@
-const { AuthorizationError, InvalidRequestError } = require("../utils/errors.js");
-const { loginSchema, registerShchema, messageSchema } = require("../utils/validation.js");
+const { AuthorizationError } = require("../utils/errors.js");
+const { loginSchema, registerShchema } = require("../utils/validation.js");
 
 
 
